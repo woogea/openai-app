@@ -24,9 +24,9 @@ const body = ()=>{return(
     <h1>英語の日記添削君</h1>
   </section><section>
       <h2>英語で日記を書いてみよう</h2>
-      <textarea id="diaryInput" name="diary" rows="20" cols="150"></textarea>
+      <textarea id="diaryInput" name="diary" rows={20} cols={150}></textarea>
       <button onClick={async () => {
-        const diary = document.getElementById('diaryInput').value
+        const diary = (document.getElementById('diaryInput') as HTMLInputElement).value
         const resp = await fetch('/api/diary', {
           method: 'POST',
           headers: {
@@ -35,10 +35,10 @@ const body = ()=>{return(
           body: JSON.stringify({ diary }),
         })
         const data = await resp.json()
-        console.log(data)
-        document.getElementById('diaryOutput').value = data.text
+        console.log(data);
+        (document.getElementById('diaryOutput') as HTMLInputElement).value = data.text
       } }>添削する</button>
     </section><section>
-      <textarea id="diaryOutput" name="diary" rows="80" cols="150"></textarea>
+      <textarea id="diaryOutput" name="diary" rows={80} cols={150}></textarea>
     </section></>
 )}
