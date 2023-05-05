@@ -4,6 +4,7 @@ import utilStyles from '../styles/utils.module.css'
 import {useState, useEffect} from 'react'
 import SignInForm  from '../components/signinform'
 import { useAuthState } from '../hooks/useAuthState'
+import firebase from 'firebase/compat/app'
 export default function Home({ allPostsData }) {
   const { isSignedIn, userName } = useAuthState()
   return (
@@ -27,10 +28,13 @@ const body = ()=>{return(
       <textarea id="diaryInput" name="diary" rows={20} cols={150}></textarea>
       <button onClick={async () => {
         const diary = (document.getElementById('diaryInput') as HTMLInputElement).value
+        var token = ""
+        await firebase.auth().currentUser.getIdToken().then(function(idToken){token=idToken})
         const resp = await fetch('/api/diary', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'token' : token
           },
           body: JSON.stringify({ diary }),
         })

@@ -7,10 +7,12 @@ const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
   console.log(req.body)
+  console.log(req.headers.token)
   try{
   const completion = await openai.createChatCompletion(
     {
     "model": "gpt-3.5-turbo",
+    "temperature": 0.2,
     "messages":[
         {"role": "system","content": "you are english teacher for Japanese Junior Highschool student. You must not talk without English learning.You are cute word chice in Japanese"},
         {"role": "assistant","content": "please fix following sentence of dialy. Then tell me why you fixed it in Japanse."},
