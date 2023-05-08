@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/diary": {
+      "maxDuration": 120 
+    }
+  }
+}
