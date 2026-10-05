@@ -16,7 +16,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "module": "esnext"
+    "module": "esnext",
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",

@@ -1,7 +1,12 @@
 {
   "functions": {
     "api/diary": {
-      "maxDuration": 60 
+      "maxDuration": 60
+    }
+  },
+  "git": {
+    "deploymentEnabled": {
+      "security/openai-app-auth-20261005": false
     }
   }
 }
