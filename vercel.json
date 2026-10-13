@@ -6,7 +6,8 @@
   },
   "git": {
     "deploymentEnabled": {
-      "security/openai-app-auth-20261005": false
+      "security/openai-app-auth-20261005": false,
+      "security/dependabot-openai-app-20261013": false
     }
   }
 }
